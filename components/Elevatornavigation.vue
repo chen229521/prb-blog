@@ -19,13 +19,13 @@ const onChangeIndex = (i: number, key: string) => {
 <template>
   <div class="navigation">
     <ul
-      class="flex gap-0.5em flex-wrap flex-col cursor-pointer border-1 text-lg text-gray-700:60"
+      class="flex gap-0.5em flex-wrap flex-col cursor-pointer border-1 text-lg text-$f"
     >
       <li
         v-for="(navs, index) in navigationConfig"
         :key="navs.key"
         class="py-0.5em px-1em hover:bg-gray-400:10 box-border max-w-31"
-        :class="activeIndex === index ? 'text-gray-700 font-bold' : ''"
+        :class="activeIndex === index ? 'text-$f font-bold' : ''"
         @click="onChangeIndex(index, navs.key)"
       >
         {{ navs.name }}

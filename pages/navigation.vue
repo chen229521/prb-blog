@@ -50,7 +50,7 @@ onUnmounted(() => {
 <template>
   <Elevatornavigation
     :active-index="activeIndex"
-    class="hidden lg:block"
+    class="hidden 2xl:flex"
     @change="handleChange"
     ref="elev"
   />
@@ -64,10 +64,10 @@ onUnmounted(() => {
       :id="navs.key"
       class="navItem"
     >
-      <div class="text-center mt-2em mb-1em text-gray-700:60" font-bold text-lg>
+      <div class="text-center mt-2em mb-1em text-$f" font-bold text-lg>
         {{ navs.name }}
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-1em">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-1em">
         <a
           v-for="nav in navs.content"
           :key="nav.link"
@@ -77,7 +77,7 @@ onUnmounted(() => {
           class="flex items-center py-0.5em px-1em rounded-sm hover:bg-gray-400:10"
         >
           <div class="hover w-full">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 text-md">
               <span class="text-sm"
                 ><img
                   :src="`https://icon.bqb.cool/?url=${nav.link}`"

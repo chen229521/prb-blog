@@ -17,7 +17,7 @@ const onChangeIndex = (i: number, key: string) => {
 </script>
 
 <template>
-  <div class="navigation">
+  <div class="navigation z-2">
     <ul
       class="flex gap-0.5em flex-wrap flex-col cursor-pointer border-1 text-lg text-$f"
     >

@@ -20,9 +20,14 @@ const handleScroll = () => {
   requestAnimationFrame(() => {
     // 防止模块高度计算未完成
     if (navHeightArr.value.length === navigationConfig.length) {
-      activeIndex.value = navHeightArr.value.findIndex(
+      let index = navHeightArr.value.findIndex(
         (item) => y.value - offsetTop.value < item
       );
+      console.log(y.value - offsetTop.value);
+
+      if (index > -1) {
+        activeIndex.value = index;
+      }
     }
   });
 };
@@ -30,10 +35,10 @@ const handleScroll = () => {
 const handleNavHeight = () => {
   const navArr = navigation.value?.getElementsByClassName("navItem") as any;
   offsetTop.value = navArr[0].offsetTop;
+  let height = 0;
   navigationConfig.forEach((item, index) => {
-    let height = 0;
-    height = navArr[index].clientHeight;
-    navHeightArr.value.push(height * (index + 1));
+    height += navArr[index].clientHeight;
+    navHeightArr.value.push(height);
   });
 };
 

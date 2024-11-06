@@ -37,7 +37,7 @@ const onChangeIndex = (i: number, key: string) => {
 <style scoped lang="scss">
 .navigation {
   position: fixed;
-  top: 20%;
+  top: 5%;
   width: fit-content;
   transform: translateX(-200%);
 }

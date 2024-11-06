@@ -12,7 +12,7 @@ const handleChange = (i: number, key: string) => {
   // 让对应的元素滚动到视图区
   window.scrollTo({
     behavior: "smooth",
-    top: navHeightArr.value[i] - 32,
+    top: navHeightArr.value[i] - 16,
   });
   // document.getElementById(key)?.scrollIntoView({
   //   behavior: "smooth",

@@ -6,24 +6,26 @@ const activeIndex = ref(0);
 const navigation = ref<HTMLElement | null>(null);
 const elev = ref<HTMLElement | null>(null);
 const handleChange = (i: number, key: string) => {
-  activeIndex.value = i;
+  // activeIndex.value = i;
+  console.log(i);
+
   // 让对应的元素滚动到视图区
-  document.getElementById(key)?.scrollIntoView({
+  window.scrollTo({
     behavior: "smooth",
+    top: navHeightArr.value[i] - 32,
   });
+  // document.getElementById(key)?.scrollIntoView({
+  //   behavior: "smooth",
+  // });
 };
 
 const navHeightArr = ref<Array<number>>([]);
 const { y } = useWindowScroll();
-const offsetTop = ref(0);
 const handleScroll = () => {
   requestAnimationFrame(() => {
     // 防止模块高度计算未完成
     if (navHeightArr.value.length === navigationConfig.length) {
-      let index = navHeightArr.value.findIndex(
-        (item) => y.value - offsetTop.value < item
-      );
-      console.log(y.value - offsetTop.value);
+      let index = navHeightArr.value.findIndex((item) => y.value < item);
 
       if (index > -1) {
         activeIndex.value = index;
@@ -34,10 +36,9 @@ const handleScroll = () => {
 
 const handleNavHeight = () => {
   const navArr = navigation.value?.getElementsByClassName("navItem") as any;
-  offsetTop.value = navArr[0].offsetTop;
-  let height = 0;
   navigationConfig.forEach((item, index) => {
-    height += navArr[index].clientHeight;
+    let height = 0;
+    height = navArr[index].getBoundingClientRect().top;
     navHeightArr.value.push(height);
   });
 };

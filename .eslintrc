@@ -1,0 +1,6 @@
+{
+  "extends": "/.eslintrc.js",
+  "rules": {
+    "vue/dot-location":"off"
+  }
+}

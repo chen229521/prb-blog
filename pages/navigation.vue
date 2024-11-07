@@ -12,7 +12,7 @@ const handleChange = (i: number, key: string) => {
   // 让对应的元素滚动到视图区
   window.scrollTo({
     behavior: "smooth",
-    top: navHeightArr.value[i] - 16,
+    top: navHeightArr.value[i] - 32,
   });
   // document.getElementById(key)?.scrollIntoView({
   //   behavior: "smooth",
@@ -23,7 +23,6 @@ const navHeightArr = ref<Array<number>>([]);
 const { y } = useWindowScroll();
 const handleScroll = () => {
   requestAnimationFrame(() => {
-    // 防止模块高度计算未完成
     if (navHeightArr.value.length === navigationConfig.length) {
       let index = navHeightArr.value.findIndex((item) => y.value < item);
 
@@ -45,7 +44,9 @@ const handleNavHeight = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll, false);
-  handleNavHeight();
+  nextTick(() => {
+    handleNavHeight();
+  });
 });
 
 onUnmounted(() => {

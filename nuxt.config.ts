@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/content',
     '@nuxtjs/stylelint-module',
+    '@nuxthub/core',
   ],
   app: {
     rootId: 'nuxt-root',

@@ -21,7 +21,6 @@
     "@chansee97/eslint-config-vue": "^0.3.5",
     "@chansee97/stylelint-config": "^0.3.5",
     "@nuxt/content": "^2.9.0",
-    "@nuxthub/core": "^0.8.6",
     "@nuxtjs/stylelint-module": "^5.1.0",
     "@types/node": "^20.9.3",
     "@unocss/nuxt": "^0.57.6",
